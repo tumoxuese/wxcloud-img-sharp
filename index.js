@@ -34,7 +34,7 @@ async function img2webp (fileid) {
       const webppath = path.join('./', tempPath + '.webp') // 确定转换后的存储地址
       try {
         await madewebp(info.file, webppath) // 开始转换，输入原文件和输出路径
-        const res = await uploadFile(filePath.match(/.*[.]/)[0] + 'webp', webppath) // 上传文件，保存在同目录中，以webp后缀替换
+        const res = await uploadFile(filePath.match(/.*[.]/)[0] + 'jpg', webppath) // 上传文件，保存在同目录中，以webp后缀替换
         fs.unlinkSync(info.file) // 删除原始临时文件
         fs.unlinkSync(webppath) // 删除webp临时文件
         console.log('文件处理结果', res.code)
@@ -65,7 +65,7 @@ async function img2webp (fileid) {
 
 function madewebp (prefile, outfile) {
   return new Promise((resolve, reject) => {
-    sharp(prefile).webp({ lossless: true }).resize(500, 500).toFile(outfile, function (err, info) {
+    sharp(prefile).jpeg({ quality: 80 }).resize(500, 500).toFile(outfile, function (err, info) {
       if (err) {
         reject(err.toString())
       } else {
