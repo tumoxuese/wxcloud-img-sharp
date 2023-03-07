@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 const cosConfig = {
-  Bucket: process.env.Bucket || '', // 填写云托管对象存储桶名称
+  Bucket: process.env.Bucket || '7072-prod-9gfzcwg9986008e2-1317149777', // 填写云托管对象存储桶名称
   Region: process.env.Region || 'ap-shanghai' // 存储桶地域，默认是上海，其他地域环境对应填写
 }
 
