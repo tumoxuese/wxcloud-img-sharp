@@ -65,7 +65,7 @@ async function img2webp (fileid) {
 
 function madewebp (prefile, outfile) {
   return new Promise((resolve, reject) => {
-    sharp(prefile).webp({ lossless: true }).resize(500, 500).extend({background: { r: 255, g: 255, b: 255, alpha: 1 }}).toFile(outfile, function (err, info) {
+    sharp(prefile).webp({ lossless: true }).resize(500, 500).flatten({ background: '#ffffff' }).toFile(outfile, function (err, info) {
       if (err) {
         reject(err.toString())
       } else {
