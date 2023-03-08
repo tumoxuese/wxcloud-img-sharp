@@ -65,7 +65,7 @@ async function img2webp (fileid) {
 
 function madewebp (prefile, outfile) {
   return new Promise((resolve, reject) => {
-    sharp(prefile).webp({ lossless: true }).resize(500, 500).toFile(outfile, function (err, info) {
+    sharp(prefile).webp({ lossless: true }).tint({ r: 255, g: 240, b: 16 }).resize(500, 500).toFile(outfile, function (err, info) {
       if (err) {
         reject(err.toString())
       } else {
