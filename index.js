@@ -15,6 +15,11 @@ app.get('/', function (req, res) {
   res.send('success')
 })
 
+app.get('/init', async function (req, res) {
+  initcos()
+  console.log('init-图像处理服务启动成功！')
+})
+
 app.get('/made', async function (req, res) {
   const { fileid } = req.query
   res.send(await img2webp(fileid))
