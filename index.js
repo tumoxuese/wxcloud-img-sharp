@@ -18,6 +18,7 @@ app.get('/', function (req, res) {
 app.get('/init', async function (req, res) {
   initcos()
   console.log('init-图像处理服务启动成功！')
+  res.send('success')
 })
 
 app.get('/made', async function (req, res) {
